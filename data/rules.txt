@@ -1,0 +1,70 @@
+Pasjans to jednoosobowa gra karciana, w której celem jest uporządkowanie
+wszystkich kart według koloru i wartości w czterech stosach końcowych
+(od asa do króla).
+
+    Przygotowanie gry:
+    1. Talia kart
+        ● Do gry używa się standardowej talii 52 kart (bez jokerów).
+        ● Karty mają cztery kolory: kier (♥), karo (♦), pik (♠) i trefl (♣). Karty kier i karo
+        powinny być wyświetlane innym kolorem czcionki niż karty pik i trefl.
+        ● Każdy kolor zawiera karty o wartościach od asa (A) do króla (K).
+
+    Układ początkowy
+      ● Kolumny gry
+        ○ Tworzy się 7 kolumn, w których układ kart wygląda następująco:
+            ■ Pierwsza kolumna: 1 karta (odkryta)
+            ■ Druga kolumna: 2 karty (1 zakryta, 1 odkryta)
+            ■ Trzecia kolumna: 3 karty (2 zakryte, 1 odkryta)
+            ■ ...
+            ■ Siódma kolumna: 7 kart (6 zakrytych, 1 odkryta)
+        ○ Tylko ostatnia karta w każdej kolumnie jest odkryta.
+
+      ● Stos rezerwowy
+        ○ Reszta kart trafia na stos rezerwowy – można z niego dobierać karty
+        (po przejrzeniu wszystkich kart stos powinien zostać przetasowany).
+        ○ Należy zaimplementować 2 poziomy trudności - łatwy i trudny. Na
+        poziomie łatwym można dobierać po 1 karcie, na poziomie trudnym
+        dobiera się 3 karty, ale użyć można tylko wierzchniej.
+
+      ● Stosy końcowe
+        ○ Cztery puste miejsca, na które należy przenieść wszystkie karty według
+        kolorów – od asa do króla.
+
+    2. Rozgrywka
+        a) Przenoszenie kart w kolumnach
+            ● Można przesuwać karty, które są ułożone w kolejności malejącej (K → Q → J
+            ... 2 → A).
+            ● Karty muszą być układane naprzemiennie kolorami
+            (czarna-czerwona-czarna-czerwona).
+            ● Można przenosić pojedynczą kartę lub całą sekwencję poprawnie ułożonych
+            kart.
+
+        b) Przenoszenie kart na stosy końcowe:
+            ● Karty można przenieść na stosy końcowe tylko w kolejności od asa do króla,
+            np.:
+                ○ A♠ → 2♠ → 3♠ → ... → K♠
+                ○ A♥ → 2♥ → 3♥ → ... → K♥
+            ● Każdy stos końcowy może zawierać tylko jeden kolor.
+
+        c) Odkrywanie zakrytych kart:
+            ● Gdy przeniesiemy ostatnią odkrytą kartę z kolumny, zakryta karta pod nią
+            zostaje odkryta.
+            ● Jeśli kolumna stanie się pusta, można w jej miejsce przenieść tylko króla (K)
+            lub całą sekwencję kart zaczynającą się od króla.
+            Dobieranie kart ze stosu rezerwowego:
+            ● Można losowo dobierać karty ze stosu:
+                ○ Dobieranie według zasad opisanych w punkcie Stos rezerwowy.
+                ○ Jeśli stos dobierania się wyczerpie,
+                należy go przetasować i ponownie użyć.
+
+        d) Cofanie ruchów:
+            ● Gra umożliwia cofnięcie 3 ostatnich ruchów gracza.
+
+    3. Zakończenie gry
+        ● Wygrana:
+            ○ Po ułożeniu wszystkich kart na stosach końcowych pojawia się ekran
+            wygranej. Gra zlicza liczbę ruchów, w których gracz ułożył pasjansa i
+            zapisuje ją w rankingu najlepszych wyników.
+        ● Przegrana:
+            ○ W trakcie gry można zakończyć gre i
+            rozpocząć ją od nowa.
